@@ -26,6 +26,8 @@ Un **graphe simple** est 1 graphe sans boucle.
 
 **exemple :** ${Cf.}$ graphe simple hugo
 
+![img1](images/img1.jpg)
+
 
 
 Soit ${G=[X,U]}$ un graphe orienté.
@@ -34,12 +36,16 @@ Une **chaîne** L de longueur q est une séquence de q arcs de la forme ${L=\{u_
 
 **exemple :**
 ${L=\{(2,0),(1,2),(1,3)\}}$ a pour extrémités 0 et 3.
+
+![img2](images/img2.jpg)
 Dans une chaîne élémentaire, on ne rencontre pas deux fois le même sommet.
 
 Un **cycle** est une chaîne dont les extrémités coincident.
 
 **exemple**:
 ${L=\{(1,0),(2,0),(1,2)\}}$ un cycle élémentaire ne contient auncun autre cycle.
+
+![img2](images/img2.jpg)
 Un graphe sans cycle est acyclique.
 
 
@@ -48,13 +54,19 @@ Un graphe sans cycle est acyclique.
 **exemple:**
 ${L=\{(1,2),(2,0)\}}$
 
+![img2](images/img2.jpg)
+
 **exemple**:
 ${Cf.}$ dessin chemin hugo ${L=\{(0,1),(1,0)\}}$ est un chemin
+
+![img3](images/img3.jpg)
 
 Un **circuit** est un chemin dont les extrémités coincident.
 
 **exemple**:
 ${Cf.}$ dessin circuit hugo
+
+![img4](images/img4.jpg)
 ${L=\{(0,1),(1,3),(3,5)\}}$ chemin
 ${L=\{(0,1),(1,3),(6,3),(5,6)\}}$ chaîne
 ${L=\{(2,4),(4,7),(7,2)\}}$ circuit
@@ -91,6 +103,7 @@ a_{ku}=0 \forall k \in X, k\neq i,j
 $$
 **exemple**:
 ${Cf.}$ dessin chemin hugo
+![img5](images/img5.jpg)
 
 $$
 \begin{array}{c|cccccccc}
@@ -136,6 +149,9 @@ G est un 1-graphe orienté
 
 ${Cf.}$ dessin hugo
 
+![img6](images/img6.jpg)
+![img7](images/img7.jpg)
+
 Le nombre de successeurs de i est ${\alpha [i+1] - \alpha [i]}$
 
 Si les arcs possèdent des attributs on ajoute autant de vecteurs $\beta$ que necessaire
@@ -146,6 +162,9 @@ Si les arcs possèdent des attributs on ajoute autant de vecteurs $\beta$ que ne
 G sans boucle
 
 **exemple**: ${Cf.}$ dessin hugo
+
+![img6](images/img8.jpg)
+![img7](images/img9.jpg)
 
 ${\forall u = (i,j) \in U}$
 

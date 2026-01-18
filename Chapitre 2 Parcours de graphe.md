@@ -57,6 +57,8 @@ Les classes d'équivalence induites sur ${X}$ forment une partition en ${X_{1}, 
 
 Image Emilio
 
+![img10](images/img10.jpg)
+
 p est appelé le nombre de connexité du graphe.
 
 **Définition**
