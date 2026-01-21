@@ -10,13 +10,13 @@ Parcours_profondeur(S)
 Empiler(S)
 Marquer(S)
 **tantque** la pile n'est pas vide **faire**
-    Dépiler(j)
-    Marquer(j)
-    **Pour** tout voisin k de j  **faire**
-        **Si** k n'est pas marqué **alors**
-            Empiler(k)
-        **FinSi**
-    **FinPour**
+&emsp;Dépiler(j)
+&emsp;Marquer(j)
+&emsp;**Pour** tout voisin k de j  **faire**
+&emsp;&emsp;**Si** k n'est pas marqué **alors**
+&emsp;&emsp;&emsp;Empiler(k)
+&emsp;&emsp;**FinSi**
+&emsp;**FinPour**
 **FinTantque**
 
 ### 2 - Parcours en largeur
@@ -27,13 +27,13 @@ Parcours_largeur(S)
 Mettre S dans la file
 Marquer(S)
 **Tantque** la file n'est pas vide **faire**
-    Retirer j le 1er de la file
-    Marquer(j)
-    **Pour** tout voisin k de j  **faire**
-        **Si** k n'est pas marqué **alors**
-            Mettre k dans la file
-        **FinSi**
-    **FinPour**
+&emsp;Retirer j le 1er de la file
+&emsp;Marquer(j)
+&emsp;**Pour** tout voisin k de j  **faire**
+&emsp;&emsp;**Si** k n'est pas marqué **alors**
+&emsp;&emsp;&emsp;Mettre k dans la file
+&emsp;&emsp;**FinSi**
+&emsp;**FinPour**
 **FinTantque**
 
 On peut implémenter ces algorithmes de façon récursive.
@@ -57,8 +57,6 @@ Les classes d'équivalence induites sur ${X}$ forment une partition en ${X_{1}, 
 
 Image Emilio
 
-![img10](images/img10.jpg)
-
 p est appelé le nombre de connexité du graphe.
 
 **Définition**
@@ -68,22 +66,22 @@ Les sous-graphes engendrés par les ensembles ${X_{1}, X_{2}, ..., X_{p}}$ sont 
 
 Calcul_du_nombre_de_connexité(G)
 **Début**
-    Marque[j] = 0 ${\forall j \in X}$
-    NbConnexité = 0
-    **TantQue** min(Marque) = 0 **Faire**
-        j = indice du 1er sommet tel que Marque[j] = 0
-        NbConnexité = NbConnexité + 1
-        Empiler(j)
-        **Tantque** la pile n'est pas vide **faire**
-            Dépiler(j)
-            Marque[j] = NbConnexité
-            **Pour** tout voisin k de j  **faire**
-                **Si** Marque[k] = 0 **alors**
-                    Empiler(k)
-                **FinSi**
-            **FinPour**
-        **FinTantque**
-    **FinTantQue**
+&emsp;Marque[j] = 0 ${\forall j \in X}$
+&emsp;NbConnexité = 0
+&emsp;**TantQue** min(Marque) = 0 **Faire**
+&emsp;&emsp;j = indice du 1er sommet tel que Marque[j] = 0
+&emsp;&emsp;NbConnexité = NbConnexité + 1
+&emsp;&emsp;Empiler(j)
+&emsp;&emsp;**Tantque** la pile n'est pas vide **faire**
+&emsp;&emsp;&emsp;Dépiler(j)
+&emsp;&emsp;&emsp;Marque[j] = NbConnexité
+&emsp;&emsp;&emsp;**Pour** tout voisin k de j  **faire**
+&emsp;&emsp;&emsp;&emsp;**Si** Marque[k] = 0 **alors**
+&emsp;&emsp;&emsp;&emsp;&emsp;Empiler(k)
+&emsp;&emsp;&emsp;&emsp;**FinSi**
+&emsp;&emsp;&emsp;**FinPour**
+&emsp;&emsp;**FinTantque**
+&emsp;**FinTantQue**
 **Fin**
 
 ### 2 - Existance d'un cycle
