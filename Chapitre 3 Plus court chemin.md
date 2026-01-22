@@ -170,7 +170,7 @@ C'est impossible car $\pi_j$ est le plus petit des potentiels de $\overline{S}$ 
 
 Pas vu cette année.
 
-## III - Problème central de l'ordonnancement
+## III - Problème central de l'ordonnancement (ou la Méthode du Chemin Critique)
 
 Un problème d'ordonnancement consiste à déterminer la date de début d'une tâche, tout en rejectant un ensemble de contraintes, afin d'optimiser une fonction objectif.
 
@@ -198,3 +198,45 @@ On construit $G = [X,U]$ un graphe de la façon suivante :
 On considère le projet suivant :
 
 Image emilio
+
+image hugo 
+
+image hugo (sans couleur, ni chemin critique)
+
+Calcul de la date **de début au plus tôt**
+$t_{\alpha}=0$
+**pour tout** $j$ dans l'ordre des rangs croissants **faire**
+&emsp;&emsp;$\max_{i \in \Gamma^{-1}_{j}} (t_i, d_i)$
+**finpour**
+
+$t_{\beta}$ est la durée minimale de projet, la date de fin au plus tôt du projet
+
+Calcul des dates **de début au plus tard**
+$T_{\beta}=t_{\beta}$
+**pour tout** $j$ dans l'ordre des rangs décroissants **faire**
+&emsp;&emsp;$T_{j}=(\min_{k \in \Gamma_{j}} (T_k))-d_j$
+**finpour**
+
+image hugo (avec couleur, sans chemin critique)
+
+On note $m_j = T_j - t_j$ la **marge** de la tâche $j$.
+Une tâche dont la marge est nulle est une **tâche critique**. Le chemin qui relie les tâches **critiques** est le **chemin critique**.
+
+image hugo (avec couleur, avec chemin critique)
+
+image hugo (tableau marges)
+
+Que se passe-t-il si A dure 10? 
+-> D commence au plus tôt à 22
+-> La marge de A et de D diminue
+-> La durée du projet est inchangée
+
+Et si en plus B dure 8 au lieu de 7 ?
+-> B devient critique
+-> La durée du projet est inchangée
+
+### 2 - Contraintes 
+
+- $j$ ne peut pas commencer avant la date $t$ : image hugo
+- $j$ peut commencer à la moitié de la réalisation de $i$  $(i < j)$ : image hugo
+- $i < j$ mais $j$ doit attendre $t$ unités de temps après la fin de $i$ : image hugo
