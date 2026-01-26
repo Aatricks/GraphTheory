@@ -140,4 +140,156 @@ Exemple : image d'hugo
 (0,3)-
 (6,7)-
 
-iamge hugo
+image hugo
+
+
+**Application pour déterminer une base de cycles**
+
+image hugo
+
+(0,1)X
+(0,4)X
+(1,2)X
+(2,1)-
+(1,4)-
+(1,2)-
+(4,2)-
+(4,3)x
+(3,2)-
+
+$\mu_1 = \{(1,2), (2,1) \}$
+$\mu_2 = \{(0,1), (0,4), (1,4) \}$
+$\mu_3 = \{(0,1), (1,2), (4,2), (0,4) \}$
+$\mu_4 = \{(0,1), (1,2), (3,2), (4,3), (0,4) \}$
+Ces 4 cycles forment une base de cycles.
+
+$\mu_1 = (0,0,1,1,0,0,0,0)$
+$\mu_2 = (1,-1,0,0,1,0,0,0)$
+$\mu_3 = (1,-1,1,0,0,-1,0,0)$
+$\mu_4 = (1,-1,1,0,0,0,-1,-1)$
+
+$$
+\mu_u = \begin{cases}
+  +1  \text{ si }  i \text{ est l'origine de u} \\
+  -1 \text{ si } i \text{ est la destination de u} \\
+0 \text{ si } i \text{ n'est pas une extrémité de } u
+\end{cases}
+$$
+
+Soit $\mu_A = \{(2,1), (1,4), (4,2)\}$ et $\mu_B = \{(1,2),(3,2),(4,3),(1,4) \}$
+$\mu_A = (0,0,0,1,1,1,0,0)$
+$\mu_B = (0,0,1,0,-1,0,-1,-1)$
+$\mu_A = \mu_1 + \mu_2 - \mu_3$
+$\mu_B = \mu_4 - \mu_2$
+
+**Théorème**
+Soit $G = [X,U]$ un graphe, $|X| = N, |U|=M$, p composantes connexes, soit $\mathcal{T} = [X,T]$ une forêt de $G$. Pour tout $u\in \overline{T} (\overline{T} = U \backslash \overline{T}$  on note $\mu^u$ le cycle unique contenu dans $T U \{u\}$. Les cycles $\mu^u$ pour $u\in \overline{T}$ forment une base de cycles dont la dimension est **M-N+p**.
+
+**Propriété**
+Soit $G=[X,U]$ un graphe, $|X|=N$, p composantes connexes. Une forêt maximale de $G$ comporte **N-p** arrêtes.
+
+**Propriété**
+$\mathcal{T}$ forest maximale de $G=[X,U]$. $\forall u \in \overline{T} = 0$ passe un cycle unique $\mu$ tq $\forall v \in \mu , v \neq u , v \in T$
+
+image hugo
+
+$u \in \overline{T}$ donc $u \notin T$
+$u$ ne peut pas relier 2 composantes connexes sinon $\mathcal{T}$ ne serait pas maximale. Donc $u=(i,j)$ avec i et j dans la même composante connexe, donc il existe une chaîne unique reliant $i$ et $j$, donc cette chaîne $+\{u\}$ est le cycle cherché.
+
+**Propriété**
+$\mathcal{T} = [X,T]$ forêt maximale de $G=[X,U]$. $\forall u \in T$ il existe un cocycle unique $\theta$ tq $\forall v \in \theta, v \neq u, v\in\overline{T}$
+
+image hugo
+
+Les extrémités de $u$ appartiennent à la même composante connexe de $\mathcal{T}$. En retirant $u=(i,j)$ de $T$ on crée 2 composantes connexes notés $X^i$ et $X^j$. Le cocycle $\theta = \omega(X^i)$ contient $u$ et d'autres arrêtes qui ne sont pas dans $T$. On notera par la suite ce cocycle $\theta$.
+
+
+## 2 - Arbres de poids minimum
+
+Soit $G=[X,U]$ un graphe. On associe à chaque arrête $u$ un nombre $w_u$ appelé le poids de l'arrête $u$. Soit $G' = [X,U']$ un graphe partiel de $G$. Le poids de $G'$ est $w(G')= \sum_{u\in U'} w_u$
+
+Par la suite on suppose que $G$ est connexe. Le problème de l'arbre de poids minimum est de rechercher un arbre de $G$ $\mathcal{T}^{*}$ tq $w(\mathcal{T}^*) = \min_{\forall \mathcal{T} \text{ arbre de } G} w(\mathcal{T})$
+
+**Théorème**
+$\mathcal{T} = [X,T]$ est un arbre de $G=[X,N]$ de poids minimum si et seulement si $\forall u \in T$, le cocycle $\theta^u$ est tel que $\forall v \in \theta^u, w_v \geq w_u$
+
+image hugo
+
+$\Rightarrow$ CN , s'il existe $v \in \theta^u$, $v\neq u$ et $w_v < w_u$, alors $\mathcal{T'}=[X,T']$ avec $T'=T\backslash \{u\} \cup \{v\}$ est encore un arbre de $G$ et $w(\mathcal{T'}) < w(\mathcal{T})$
+impossible.
+
+$\Leftarrow$ CS , On suppose que $\forall u \in \overline{T}$, le cocycle $\theta^u$ est tq $w_v \geq w_u$ $\forall v \in \theta^u$
+On note $\mathcal{T^*}=[X, T^*]$ un arbre de poids minimum. On veut montrer que $w(\mathcal{T})=w(\mathcal{T^*})$
+
+image hugo
+
+Soit $u \in T$, $u \notin T^*$
+Soit $\theta^u$ le cocycle associé à $u$, $u \notin T^* \Rightarrow$ par $u$ il passe un cycle unique dans $\mathcal{T^*}$ avec toutes les arrêtes dans $\mathcal{T^*}$ sauf $u$.
+On note $\mu^u$ ce cycle.
+Soit $v \in \theta^u \cap \mu^u, v\neq u$ 
+$v \in T^*$ car $v \in \mu^u$ et $v\neq u$
+$v \in T$ car $v \in \theta^u$ et $v\neq u$
+donc $w_v \geq w_u$
+
+Sin on avait $w_v>w_u$, en remplaçant $v$ par $u$ dans $\mathcal{T}$, on aurait un arbre de poids $< w(\mathcal{T^*})$, impossible.
+
+Donc $w_v=w_u$
+Donc $\forall u \in T$, $u \notin T^*$, on peut trouver une arrête $v \in T^*$ et $v \notin T$ tq $w_u=w_v$
+Donc $w(\mathcal{T})=w(\mathcal{T^*})$
+
+
+**Algorithme de Kruskal, 1956**
+
+$w_{u_1} \leq w_{u_2} \leq \dots \leq w_{u_M}$
+$T=\{u_1\}
+$k=2$
+**Pour** toute arrête $u_k$ **faire**
+&emsp;&emsp;**si** $u_k$ ne génère pas de cycle avec les arrêtes de $T$ **alors**
+&emsp;&emsp;&emsp;&emsp;$T=T\cup\{u_k\}$
+&emsp;&emsp;**finsi**
+**finpour**
+
+image hugo
+
+(0,1) 10 x
+(7,8) 15 x
+(2,3) 17 x
+(3,8) 17 x
+(1,2) 19 x
+(0,6) 21 x
+(3,4) 21 x
+(2,8) 26 -
+(0,7) 28 - 
+(5,7) 31 x
+(6,7) 33 -
+(4,5) 36 -
+(5,6) 42 -
+
+image hugo
+
+0: 0
+1: $\not{1}$ 0
+2: $\not{2}$ 0
+3: $\not{3}$ $\not{2}$ 0
+4: $\not{4}$ 0
+5: $\not{5}$ 0
+6: $\not{6}$ 0
+7: $\not{7}$ $\not{2}$ 0
+8 : $\not{8}$ $\not{7}$ $\not{2}$ 0
+
+**Algorithme de Prim, 1957**
+
+$A=\{S\}$
+$T=\emptyset$
+$\theta = \omega(A)$
+**tant que** $A \neq X$ **faire**
+&emsp;&emsp;rechercher dans $\theta$ l'arrête de poids minimum $u=(i,j)$ $j$ l'extrémité de $u$ qui n'est pas dans $A$
+&emsp;&emsp;$A=A\cup\{j\}$
+&emsp;&emsp;$\theta = \theta \Delta w(\{j\})$
+&emsp;&emsp;$T=T\cup\{u\}$
+**fin tant que**
+
+avec $\Delta$ la distance géométrique
+
+image emilio
+
