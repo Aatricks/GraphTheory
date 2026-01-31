@@ -98,27 +98,26 @@ Autrement dit si ${u=(1,j)\in U}$ alors $$
 \begin{cases}
   a_{iu}=+1  \\
   a_{ju}=-1 \\
-a_{ku}=0 \forall k \in X, k\neq i,j
+a_{ku}=0 \ \forall \ k \ \in X, k\neq i,j
 \end{cases}
 $$
 **exemple**:
 ${Cf.}$ dessin chemin hugo
 ![img5](images/img5.jpg)
 
-$$
-\begin{array}{c|cccccccc}
-% Ligne de Titres (Indices de colonnes)
-& 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\
 
-% Contenu de la matrice
-0 & & 1 & & 1 & & 1 & & \\
-1 & & & & 1 & & & & \\
-2 & & & & & 1 & & & \\
-3 & & & & & & 1 & & \\
-4 & & & & & & & & 1 \\
-5 & & & & & & & 1 & \\
-6 & & 1 & & 1 & & & & \\
-7 & & & 1 & & 1 & & & \\
+$$
+\begin{array}{c|cccccccccccc} % En-tête (Numéros des arcs) 
+& 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\ 
+\hline % Contenu de la matrice (Sommets en lignes) 
+0 & 1 & 1 & 1 & & & & & & & & & \\ 
+1 & -1 & & & 1 & -1 & & & & & & & \\ 
+2 & & & & & & & & & 1 & -1 & & \\ 
+3 & & & -1 & -1 & & 1 & -1 & & & & & \\
+4 & & & & & & & & & -1 & & -1 & 1 \\
+5 & & -1 & & & & -1 & & 1 & & & & \\
+6 & & & & & 1 & & 1 & -1 & & & & \\ 
+7 & & & & & & & & & & 1 & 1 & -1 \\ 
 \end{array}
 $$
 
@@ -136,6 +135,22 @@ ${a_ij = }$ $$
 $$
 Si le graphe est non orienté ${u=(i,j)\in U \Rightarrow a_ij = a_ji =1}$
 
+$$
+\begin{array}{c|cccccccc}
+% Ligne de Titres (Indices de colonnes)
+& 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+
+% Contenu de la matrice
+0 & & 1 & & 1 & & 1 & & \\
+1 & & & & 1 & & & & \\
+2 & & & & & 1 & & & \\
+3 & & & & & & 1 & & \\
+4 & & & & & & & & 1 \\
+5 & & & & & & & 1 & \\
+6 & & 1 & & 1 & & & & \\
+7 & & & 1 & & 1 & & & \\
+\end{array}
+$$
 
 ## III Codage d'un graphe
 
